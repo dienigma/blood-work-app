@@ -14,5 +14,7 @@ app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname,'public')))
 
 const userRouter = require('./routes/user')
+const reportRouter = require('./routes/report')
 app.use('/users',userRouter)
+app.use('/reports',reportRouter)
 app.listen(3000,()=> console.log(`Server Running`))
