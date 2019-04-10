@@ -25,4 +25,8 @@ router.post('/login',(req, res)=>{
 router.get("/reports",(req,res) => {
     res.render('reports', {data: data, credentials: credentials})
 })
+
+router.get('/logout', (req,res)=>{
+    res.render('logout')
+})
 module.exports = router
