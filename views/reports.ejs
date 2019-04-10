@@ -5,14 +5,27 @@
   </div>
 </div>
 <div class="container">
-    <div class="card" style="width: 40rem; margin: 100 auto;">
-        <div class="card-body">
-          <h5 class="card-title"><%= data.title %></h5>
-          <h6 class="card-subtitle mb-2 text-muted">Patient: <%= data.name %></h6>
-          <p class="card-text"><%= data.details%></p>
-          
+    <div id="accordion">
+  <%data.forEach((element) =>{%>
+    
+        <div class="card">
+          <div class="card-header" id=<%= element.id %>>
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#<%= element.collapseId %>" aria-expanded="true" aria-controls=<%= element.collapseId %></button>
+                <%= element.title %>
+              </button>
+            </h5>
+          </div>
+      
+          <div id=<%= element.collapseId %> class="collapse show" aria-labelledby=<%= element.id %> data-parent="#accordion">
+            <div class="card-body">
+              <%= element.details %>
+            </div>
+          </div>
         </div>
-    </div>
+      
+  <%})%>
+</div>
 </div>
 
 <% include partials/footer %>
