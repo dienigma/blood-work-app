@@ -2,8 +2,9 @@ const express = require('express')
 const router = express.Router()
 
 const credentials = {
+    name: "Chinmay",
     email: "chinmay@email.com",
-    password: 123
+    password: '123'
 }
 
 var data = {
@@ -18,9 +19,10 @@ router.get('/login',(req,res) => {
 })
 
 router.post('/login',(req, res)=>{
-    req.params.email === credentials.email && req.params.password === credentials.password ? res.redirect('/reports') : res.send("Login Failed")
+    console.log(req.body)
+    req.body.email === credentials.email && req.body.password === credentials.password ? res.redirect('/reports') : res.send("Login Failed")
 })
 router.get("/reports",(req,res) => {
-    res.render('reports', {data: data})
+    res.render('reports', {data: data, credentials: credentials})
 })
 module.exports = router
