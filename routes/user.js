@@ -2,16 +2,18 @@ const express = require('express')
 const router = express.Router()
 const db = require('../models')
 
+
 // Show Route
 router.get('/', (req,res) =>{
-    db.User.find()
+    db.User.find().exec()
     .then(data => res.json(data))
     .catch(err => res.send(err))
+    
 })
 
 // create a user
 router.post('/',(req,res)=>{
-    db.User.create(req.body).exec()
+    db.User.create(req.body)
     .then(data => res.json(data))
     .catch(err => res.send(err))
 })

@@ -5,13 +5,13 @@ const db = require('../models')
 // Show Route
 router.get('/', (req,res) =>{
     db.Report.find()
-    .then(data => res.json(data))
+    .then(data => res.render('reports'))
     .catch(err => res.send(err))
 })
 
 // create a Report
 router.post('/',(req,res)=>{
-    db.Report.create(req.body).exec()
+    db.Report.create(req.body)
     .then(data => res.json(data))
     .catch(err => res.send(err))
 })
