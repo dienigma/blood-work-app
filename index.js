@@ -15,6 +15,9 @@ app.use(express.static(path.join(__dirname,'public')))
 
 const userRouter = require('./routes/user')
 const reportRouter = require('./routes/report')
+const loginRouter = require('./routes/login')
+
 app.use('/users',userRouter)
 app.use('/reports',reportRouter)
+app.use('/login',loginRouter)
 app.listen(3000,()=> console.log(`Server Running`))
